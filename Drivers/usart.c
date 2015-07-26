@@ -81,16 +81,6 @@ void usart_sendBytes(USART_TypeDef *usart, u8 *buffer, u16 len)
 	}
 }
 
-void USART1_IRQHandler(void)
-{
-	if(USART_GetFlagStatus(USART1,USART_FLAG_RXNE)==SET)
-	{
-		USART_ReceiveData(USART1);
-		USART_ClearITPendingBit(USART1,USART_IT_RXNE);
-		
-	}
-}
-
 void UART4_IRQHandler(void)
 {
 	if(USART_GetFlagStatus(UART4,USART_FLAG_RXNE)==SET)

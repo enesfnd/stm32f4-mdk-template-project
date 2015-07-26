@@ -1,6 +1,6 @@
-#include "touch.h"
+#include "..\Modules\LCD\touch.h"
+#include "..\Modules\LCD\lcd.h"
 #include "spi.h"
-#include "lcd.h"
 #include "delay.h"
 #include <math.h>
 

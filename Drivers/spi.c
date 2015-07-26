@@ -25,7 +25,6 @@ void spi_config(void)
 	SPI_InitStructure.SPI_CRCPolynomial = 7;							//CRC值计算的多项式
 	SPI_Init(SPI1, &SPI_InitStructure);
 	SPI_Cmd(SPI1, ENABLE);
-	T_CS = 0;	//触摸屏片选有效
 }
 
 uint8_t spi_read_write_byte(uint8_t txData)

@@ -52,3 +52,9 @@ void gpio_af_od_up_init(GPIO_TypeDef *gpio, uint32_t gpio_pin)
 	gpio_config(gpio, gpio_pin, GPIO_Mode_AF, GPIO_OType_OD, GPIO_PuPd_UP, GPIO_Speed_100MHz);
 }
 
+//模拟输入无拉
+void gpio_an_no_init(GPIO_TypeDef *gpio, uint32_t gpio_pin)
+{
+	gpio_config(gpio, gpio_pin, GPIO_Mode_AN, GPIO_OType_OD, GPIO_PuPd_NOPULL, GPIO_Speed_100MHz);
+}
+

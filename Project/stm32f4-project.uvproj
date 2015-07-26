@@ -477,6 +477,16 @@
               <FileType>1</FileType>
               <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_i2c.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f4xx_dma.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4xx_sdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Libraries\STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sdio.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -507,20 +517,40 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers\spi.c</FilePath>
             </File>
+            <File>
+              <FileName>adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>exit.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\exit.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Modules</GroupName>
           <Files>
             <File>
-              <FileName>encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\encoder.c</FilePath>
-            </File>
-            <File>
               <FileName>nano_board.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Modules\nano_board.c</FilePath>
+            </File>
+            <File>
+              <FileName>remote_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\remote_control.c</FilePath>
+            </File>
+            <File>
+              <FileName>nrf24l01.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\NRF24L01\nrf24l01.c</FilePath>
+            </File>
+            <File>
+              <FileName>sd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\SD-Card\sd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -561,6 +591,16 @@
               <FileName>touch.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Modules\LCD\touch.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Doc</GroupName>
+          <Files>
+            <File>
+              <FileName>外设资源.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Doc\外设资源.txt</FilePath>
             </File>
           </Files>
         </Group>

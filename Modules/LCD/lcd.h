@@ -12,6 +12,7 @@
 
 #define LCD_LED_A	PbOutBit(1)
 #define LCD_RESET	PfOutBit(11)
+#define T_CS	PaOutBit(3)
 
 typedef struct
 {

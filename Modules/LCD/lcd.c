@@ -1,4 +1,4 @@
-#include "lcd.h"
+#include "..\Modules\LCD\lcd.h"
 #include "gpio.h"
 #include "delay.h"
 #include <stdio.h>
@@ -18,6 +18,7 @@ void lcd_init(void)
 	LCD_RESET = 0;
 	delay_ms(100);
 	LCD_RESET = 1;
+	T_CS = 0;
 	delay_ms(100);
 	
 	RCC_AHB3PeriphClockCmd(RCC_AHB3Periph_FSMC,ENABLE);

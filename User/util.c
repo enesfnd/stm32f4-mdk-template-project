@@ -41,4 +41,3 @@ void nvic_config(uint8_t irq_channel, uint8_t priority)
 }
 
 
-
