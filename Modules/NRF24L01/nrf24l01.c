@@ -189,6 +189,30 @@ uint8_t NRF24L01_Get_State(uint8_t *pState)
 	return res;
 }
 
-
+void EXTI9_5_IRQHandler(void)
+{
+	uint8_t state = 0;
+	if(EXTI_GetITStatus(EXTI_Line5) != RESET){
+		EXTI_ClearITPendingBit(EXTI_Line5);
+		switch(NRF24L01_Get_State(&state)){
+			case TX_OK:
+				NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,state); //清除TX_DS或MAX_RT中断标志
+				NRF24L01_Write_Reg(FLUSH_TX,0xff);//清除TX FIFO寄存器 
+				nrf_state = TX_OK;
+				break;
+			case MAX_TX:
+				NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS,state); //清除TX_DS或MAX_RT中断标志
+				NRF24L01_Write_Reg(FLUSH_TX,0xff);//清除TX FIFO寄存器 
+				nrf_state = MAX_TX;
+				break;
+			case RX_OK:
+				NRF24L01_Write_Reg(NRF_WRITE_REG+STATUS, state);				//清除TX_DS或MAX_RT中断标志
+				NRF24L01_Read_Buf(RD_RX_PLOAD, nrf_rx_buffer, RX_PLOAD_WIDTH);	//读取数据
+				NRF24L01_Write_Reg(FLUSH_TX, 0xff);								//清除TX FIFO寄存器 
+				nrf_state = RX_OK;
+				break;
+		}
+	}
+}
 
 

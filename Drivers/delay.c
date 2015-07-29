@@ -1,39 +1,26 @@
 #include "delay.h"
 
-vu32 systick_counter=0;
-
 void delay_config(void)
 {
-	SysTick_CLKSourceConfig(SysTick_CLKSource_HCLK_Div8);
-	if (SysTick_Config(SystemCoreClock / 1000000))
-	{ 
-		while (1);
-	}
-	delay_cmd(DISABLE);
-}
-
-void delay_cmd(FunctionalState state)
-{
-	if(state == ENABLE){
-		SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
-	}
-	else{
-		SysTick->CTRL &= (~SysTick_CTRL_ENABLE_Msk);
-	}
+	SysTick->CTRL |= SysTick_CTRL_CLKSOURCE_Msk;		//时钟源为系统时钟168MHz
+	SysTick->LOAD = 167;								//重载值为168-1，每1us溢出一次
 }
 
 void delay_ms(vu32 nTime)
 {
-	delay_cmd(ENABLE);
-	systick_counter = nTime*1000;
-	while(systick_counter != 0);
-	delay_cmd(DISABLE);
+	nTime *= 1000;
+	SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;			//使能SysTick，开始计数
+	while(nTime--){
+		while((SysTick->CTRL&0X010000) == 0);			//等待COUNTFLAG标志位置1
+	}
+	SysTick->CTRL &= (~SysTick_CTRL_ENABLE_Msk);		//失能SysTick，停止计数
 }
 
 void delay_us(vu32 nTime)
 {
-	delay_cmd(ENABLE);
-	systick_counter = nTime;
-	while(systick_counter != 0);
-	delay_cmd(DISABLE);
+	SysTick->CTRL |= SysTick_CTRL_ENABLE_Msk;
+	while(nTime--){
+		while((SysTick->CTRL&0X010000) == 0);
+	}
+	SysTick->CTRL &= (~SysTick_CTRL_ENABLE_Msk);
 }

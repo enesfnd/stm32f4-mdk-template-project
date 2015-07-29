@@ -138,13 +138,8 @@ void PendSV_Handler(void)
   * @param  None
   * @retval None
   */
-extern vu32 systick_counter;
 void SysTick_Handler(void)
 {
- 	if(systick_counter!=0x00)
- 	{
- 		systick_counter--;
- 	}
 }
 
 /******************************************************************************/

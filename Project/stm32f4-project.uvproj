@@ -527,30 +527,25 @@
               <FileType>1</FileType>
               <FilePath>..\Drivers\exit.c</FilePath>
             </File>
+            <File>
+              <FileName>micros_time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Drivers\micros_time.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Modules</GroupName>
           <Files>
             <File>
-              <FileName>nano_board.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\nano_board.c</FilePath>
-            </File>
-            <File>
-              <FileName>remote_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\remote_control.c</FilePath>
-            </File>
-            <File>
-              <FileName>nrf24l01.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Modules\NRF24L01\nrf24l01.c</FilePath>
-            </File>
-            <File>
               <FileName>sd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Modules\SD-Card\sd.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f4_discovery.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modules\stm32f4_discovery.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -601,6 +596,11 @@
               <FileName>外设资源.txt</FileName>
               <FileType>5</FileType>
               <FilePath>..\Doc\外设资源.txt</FilePath>
+            </File>
+            <File>
+              <FileName>STM32F407IGT6引脚定义.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Doc\STM32F407IGT6引脚定义.txt</FilePath>
             </File>
           </Files>
         </Group>
